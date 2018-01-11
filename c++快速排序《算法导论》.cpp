@@ -1,8 +1,7 @@
-//Õª×ÔCSDN ----Chris's note 
+//æ‘˜è‡ªCSDN  
 #include <iostream>  
 #include <vector>  
-using namespace std;  
-//½»»»Á½¸öÔªËØÖµ  
+using namespace std;   
 void swap(int &p,int &q)  
 {  
     int t;  
@@ -10,47 +9,47 @@ void swap(int &p,int &q)
     p = q;  
     q = t;  
 }  
-//¿ìËÙÅÅĞòËã·¨ÖĞµÄÒ»ÌË»®·Öº¯Êı  
+//å¿«é€Ÿæ’åºç®—æ³•ä¸­çš„ä¸€è¶Ÿåˆ’åˆ†å‡½æ•°  
 int partition(vector<int> &data, int low, int high)  
 {  
-    //»ù×¼¼ÇÂ¼  
+    //åŸºå‡†è®°å½•  
 	int i    = low;
     int temp = data[low];  
     for(int j = low + 1; j <= high; ++j )
 	{
-		if(data[j] <= temp)  //²éÕÒ¹Ø¼ü×ÖĞ¡ÓÚtempµÄ¼ÇÂ¼£¬²¢ÒÀ´Î·Åµ½data[low]µÄÓÒ²à
+		if(data[j] <= temp)  //æŸ¥æ‰¾å…³é”®å­—å°äºtempçš„è®°å½•ï¼Œå¹¶ä¾æ¬¡æ”¾åˆ°data[low]çš„å³ä¾§
 			swap(data[++i], data[j]); 
 	}
-	swap(data[low], data[i]);//½«»ù×¼¼ÇÂ¼temp¶¨Î»£¬Ê¹Æä×ó²à¼ÇÂ¼¾ù²»´óÓÚtemp,ÓÒ²à¾ù´óÓÚtemp  
+	swap(data[low], data[i]);//å°†åŸºå‡†è®°å½•tempå®šä½ï¼Œä½¿å…¶å·¦ä¾§è®°å½•å‡ä¸å¤§äºtemp,å³ä¾§å‡å¤§äºtemp  
     return i;  
 }  
-//¿ìËÙÅÅĞò  
+//å¿«é€Ÿæ’åº  
 void quickSort(vector<int> &data,int low,int high)  
 {  
     int i;  
-    if(low<high)//Ö»ÓĞÒ»¸ö»òÎŞ¼ÇÂ¼Ê±²»ĞëÅÅĞò  
+    if(low<high)//åªæœ‰ä¸€ä¸ªæˆ–æ— è®°å½•æ—¶ä¸é¡»æ’åº  
     {  
-        i=partition(data,low,high);//¶Ôdata[low]µ½data[high]½øĞĞÒ»´Î»®·Ö  
-        quickSort(data,low,i-1);//µİ¹é´¦Àí×óÇø¼ä  
-        quickSort(data,i+1,high);//µİ¹é´¦ÀíÓÒÇø¼ä  
+        i=partition(data,low,high);//å¯¹data[low]åˆ°data[high]è¿›è¡Œä¸€æ¬¡åˆ’åˆ†  
+        quickSort(data,low,i-1);//é€’å½’å¤„ç†å·¦åŒºé—´  
+        quickSort(data,i+1,high);//é€’å½’å¤„ç†å³åŒºé—´  
     }  
 }  
 int main()  
 {  
     int n, m;  
     vector<int> input;  
-    //ÊäÈëÊı¾İ  
-    cout<<"ÇëÊäÈëÊı×éµÄ³¤¶È: ";  
+    //è¾“å…¥æ•°æ®  
+    cout<<"è¯·è¾“å…¥æ•°ç»„çš„é•¿åº¦: ";  
     cin>>n;  
-    cout<<"Çë¶ÔÊı×é¸³Öµ: ";  
+    cout<<"è¯·å¯¹æ•°ç»„èµ‹å€¼: ";  
     for(int i=0; i<n; ++i)  
     {  
         cin>>m;  
         input.push_back(m);  
     }  
-    //´¦ÀíÊı¾İ  
+    //å¤„ç†æ•°æ®  
     quickSort(input,0,n-1);  
-    //Êä³ö½á¹û  
+    //è¾“å‡ºç»“æœ  
     for(int i=0; i<n; ++i)  
         cout<<input[i]<<" ";  
     cout<<endl;  
